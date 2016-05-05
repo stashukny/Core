@@ -23,7 +23,7 @@ namespace BillingProcessor
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnAddScheduleA_Click(object sender, EventArgs e)
         {
             cycleThroughFiles("schedule");
         }
@@ -46,12 +46,12 @@ namespace BillingProcessor
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btnAddFormulas_Click(object sender, EventArgs e)
         {
             cycleThroughFiles("formulas");
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void btnListFiles_Click(object sender, EventArgs e)
         {
             DirSearch(@"C:\Users\sshatkin\Documents\Billing\Client Templates\");
         }
@@ -121,46 +121,65 @@ namespace BillingProcessor
                 {
                     if (range.Cells[rCnt, 6].Value2 != null)
                     {
-                        if (range.Cells[rCnt, 6].Value2.ToString().Trim() == "Payment Processing SaaS fee")
+                        if (range.Cells[rCnt, 6].Value2.ToString().Trim() == "Single Sign-On Monthly Fee")
                         {
                             //insert next new row
                             Excel.Range Line = (Excel.Range)xlWorkSheet.Rows[rCnt + 1];
                             Line.Insert();
-                            range.Cells[rCnt + 1, 6].Value2 = "Expense Report SaaS fee";
-                            range.Cells[rCnt + 1, 7].Value2 = 0;
+                            range.Cells[rCnt + 1, 6].Value2 = "PO Requisition Transactions";
+
+
+                            Excel.Range Line2 = (Excel.Range)xlWorkSheet.Rows[rCnt + 2];
+                            Line2.Insert();
+
+
+                            range.Cells[rCnt + 2, 7].Value2 = 0.5;
+                            range.Cells[rCnt + 2, 6].Value2 = "PO Requisition Transactions";
+                            range.Cells[rCnt + 2, 5].Value2 = 0.5;
+                            range.Cells[rCnt + 2, 2].Value2 = " PO Requisition Transaction Fee";
+                            range.Cells[rCnt + 2, 1].Value2 = 1;
+                            xlWorkSheet.Range[range.Cells[rCnt + 2, 2], range.Cells[rCnt + 2, 3]].Merge();
+
+                            int i = 1;
+                            for (i = 1; i < 9; i++ )
+                            { 
+                                range.Cells[rCnt + 1, i].Interior.ColorIndex = 1;
+                                range.Cells[rCnt + 1, i].Font.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.White);
+                            }
                         }
 
-                        if (range.Cells[rCnt, 6].Value2.ToString().Trim() == "Email Monthly Fee")
-                        {
-                            //insert next new row
-                            Excel.Range Line = (Excel.Range)xlWorkSheet.Rows[rCnt + 1];
-                            Line.Insert();
-                            range.Cells[rCnt + 1, 2].Value2 = "Single Sign-On Monthly Fee";
-                            range.Cells[rCnt + 1, 6].Value2 = "Single Sign-On Monthly Fee";
-                            range.Cells[rCnt + 1, 7].Value2 = 0;
-                            range.Cells[rCnt + 1, 8].Value2 = "Specify Single Sign-On Monthly Fee";
-                            xlWorkSheet.Range[range.Cells[rCnt + 1, 2], range.Cells[rCnt + 1, 3]].Merge();
+                        //if (range.Cells[rCnt, 6].Value2.ToString().Trim() == "Email Monthly Fee")
+                        //{
+                        //    //insert next new row
+                        //    Excel.Range Line = (Excel.Range)xlWorkSheet.Rows[rCnt + 1];
+                        //    Line.Insert();
+                        //    range.Cells[rCnt + 1, 2].Value2 = "Single Sign-On Monthly Fee";
+                        //    range.Cells[rCnt + 1, 6].Value2 = "Single Sign-On Monthly Fee";
+                        //    range.Cells[rCnt + 1, 7].Value2 = 0;
+                        //    range.Cells[rCnt + 1, 8].Value2 = "Specify Single Sign-On Monthly Fee";
+                        //    xlWorkSheet.Range[range.Cells[rCnt + 1, 2], range.Cells[rCnt + 1, 3]].Merge();
 
-                            //break;
-                        }
+                        //    //break;
+                        //}
                     }
                 }
-                else
+                else if (insertType == "formulas")
                 {
                     if (range.Cells[rCnt, 1].Value2 != null)
                     {
                         if (range.Cells[rCnt, 1].Value2.ToString().Trim() == "Subtotal of Charges: USD")
                         {
-                            int Position = rCnt - 5;
-                            updateFormulas(ref xlWorkSheet, ref range, Position);                            
+                            int Position = rCnt - 11;
+                            updateFormulas(ref xlWorkSheet, ref range, Position, 25);                            
 
-                            Position = rCnt - 2;
-                            updateFormulas(ref xlWorkSheet, ref range, Position);      
+                            //Position = rCnt - 2;
+                            //updateFormulas(ref xlWorkSheet, ref range, Position, 1);      
 
                             break;
                         }
                     }
                 }
+
 
             }
 
@@ -195,36 +214,34 @@ namespace BillingProcessor
             }
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void btnRunAll_Click(object sender, EventArgs e)
         {
             cycleThroughFiles("schedule");
             cycleThroughFiles("formulas");
+            cycleThroughFiles("one_formula");
         }
 
-        private void updateFormulas(ref Excel.Worksheet xlWorkSheet, ref Excel.Range range, int Position)
+        private void updateFormulas(ref Excel.Worksheet xlWorkSheet, ref Excel.Range range, int Position, int offset)
         {
+
             Excel.Range Line = (Excel.Range)xlWorkSheet.Rows[Position];
             Line.Insert();
             string initialFormula = range.Cells[Position - 1, 1].Formula;
             string updateFormula = initialFormula.Substring(initialFormula.Length - 10);
             int rowNum = Convert.ToInt32(updateFormula.Replace("), \" \")", "").Replace("F", ""));
-            range.Cells[Position, 1].Formula = initialFormula.Replace((rowNum).ToString(), (rowNum + 1).ToString()).Replace((Position - 1).ToString(), Position.ToString());
+            range.Cells[Position, 1].Formula = initialFormula.Replace((rowNum).ToString(), (rowNum + offset).ToString()).Replace((Position - 1).ToString(), Position.ToString());
             xlWorkSheet.Range[range.Cells[Position, 4], range.Cells[Position, 5]].Merge();
-            range.Cells[Position, 4].Formula = range.Cells[Position - 1, 4].Formula.ToString().Replace(rowNum.ToString(), (rowNum + 1).ToString()).Replace("A" + (rowNum + 1).ToString() + "*", "");         
+            range.Cells[Position, 4].Formula = range.Cells[Position - 1, 4].Formula.ToString().Replace(rowNum.ToString(), (rowNum + offset).ToString()).Replace("A" + (rowNum + offset).ToString() + "*", "");
+            range.Cells[Position, 4].Formula = range.Cells[Position, 4].Formula.Replace("U", "Y");
+
+            //more formulas
+            range.Cells[Position, 3].Formula = range.Cells[Position, 4].Formula.Replace(range.Cells[Position, 4].Formula.ToString().Substring(range.Cells[Position, 4].Formula.ToString().IndexOf("),") + 3, 8), "").Replace(", 0", ",' '");
+            range.Cells[Position, 2].Formula = range.Cells[Position, 4].Formula.Replace(range.Cells[Position, 4].Formula.ToString().Substring(range.Cells[Position, 4].Formula.ToString().IndexOf("*"), 6), "");
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void btnModifyOneFormula_Click(object sender, EventArgs e)
         {
-            using (System.IO.StreamReader file = new System.IO.StreamReader(@"MasterClientList.txt"))
-            {
-                while (true)
-                {
-                    string path = file.ReadLine();
-                    if (path == null) { break; }
-                    updateFormula(path);
-                }
-            }
-            MessageBox.Show(Sum.ToString());
+            cycleThroughFiles("one_formula");
         }
 
         private void updateFormula(string filepath)
