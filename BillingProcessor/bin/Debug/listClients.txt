@@ -1,31 +1,41 @@
 C:\Users\sshatkin\Documents\Billing\Client Templates\AAA South Jersey\Cor360BillingTemplate - AAA South Jersey.xlsx
-C:\Users\sshatkin\Documents\Billing\Client Templates\Alaska Federal Credit Union\Cor360BillingTemplate - Alaska Federal Credit Union - Copy.xlsx
 C:\Users\sshatkin\Documents\Billing\Client Templates\Alaska Federal Credit Union\Cor360BillingTemplate - Alaska Federal Credit Union.xlsx
 C:\Users\sshatkin\Documents\Billing\Client Templates\Ameriquest\Cor360BillingTemplate - AmeriQuest.xlsx
 C:\Users\sshatkin\Documents\Billing\Client Templates\Amvac\Cor360BillingTemplate - Amvac.xlsx
+C:\Users\sshatkin\Documents\Billing\Client Templates\Apple American\Cor360BillingTemplate - Apple American.xlsx
 C:\Users\sshatkin\Documents\Billing\Client Templates\Aquent\Cor360BillingTemplate - Aquent.xlsx
 C:\Users\sshatkin\Documents\Billing\Client Templates\Argo TurboServe\Cor360BillingTemplate - Argo TurboServe.xlsx
 C:\Users\sshatkin\Documents\Billing\Client Templates\Argon\Cor360BillingTemplate - Argon.xlsx
+C:\Users\sshatkin\Documents\Billing\Client Templates\Ask\Cor360BillingTemplate - Ask.xlsx
+C:\Users\sshatkin\Documents\Billing\Client Templates\Athene\Cor360BillingTemplate - Athene.xlsx
 C:\Users\sshatkin\Documents\Billing\Client Templates\BairdWarner\Cor360BillingTemplate - BairdWarner.xlsx
+C:\Users\sshatkin\Documents\Billing\Client Templates\BaseTemplate\Cor360BillingTemplate IRM.xlsx
+C:\Users\sshatkin\Documents\Billing\Client Templates\BaseTemplate\Cor360BillingTemplate.xlsx
 C:\Users\sshatkin\Documents\Billing\Client Templates\Belkin\Cor360BillingTemplate - Belkin.xlsx
 C:\Users\sshatkin\Documents\Billing\Client Templates\BellCanada\Cor360BillingTemplate - Bell Canada.xlsx
 C:\Users\sshatkin\Documents\Billing\Client Templates\BluSky Restoration\Cor360BillingTemplate - BluSky Restoration.xlsx
-C:\Users\sshatkin\Documents\Billing\Client Templates\Boeing Canada\Cor360BillingTemplate - Boeing Canada.xlsx
 C:\Users\sshatkin\Documents\Billing\Client Templates\BrokenSound\Cor360BillingTemplate - Broken Sound.xlsx
+C:\Users\sshatkin\Documents\Billing\Client Templates\BrokenSound\temp\Cor360BillingTemplate - Broken Sound.xlsx
 C:\Users\sshatkin\Documents\Billing\Client Templates\Central Bancompany\Cor360BillingTemplate - Central Bancompany.xlsx
 C:\Users\sshatkin\Documents\Billing\Client Templates\Chart Industries\Cor360BillingTemplate - Chart Industries.xlsx
 C:\Users\sshatkin\Documents\Billing\Client Templates\Chemico\Cor360BillingTemplate - Chemico.xlsx
 C:\Users\sshatkin\Documents\Billing\Client Templates\Citadel\Cor360BillingTemplate - Citadel.xlsx
+C:\Users\sshatkin\Documents\Billing\Client Templates\Citadel Clearing\Cor360BillingTemplate - Citadel Clearing.xlsx
 C:\Users\sshatkin\Documents\Billing\Client Templates\Conifer Health Solutions\Cor360BillingTemplate - Conifer.xlsx
 C:\Users\sshatkin\Documents\Billing\Client Templates\First United Bank\Cor360BillingTemplate - First United Bank.xlsx
 C:\Users\sshatkin\Documents\Billing\Client Templates\Freeborn County\Cor360BillingTemplate - Freeborn County.xlsx
 C:\Users\sshatkin\Documents\Billing\Client Templates\Group Nine Associates\Cor360BillingTemplate - Group Nine Associates.xlsx
 C:\Users\sshatkin\Documents\Billing\Client Templates\Guardian Pharmacy\Cor360BillingTemplate - Guardian Pharmacy.xlsx
 C:\Users\sshatkin\Documents\Billing\Client Templates\Hanesbrands\Cor360BillingTemplate - Hanesbrands.xlsx
+C:\Users\sshatkin\Documents\Billing\Client Templates\Hanesbrands UK Europe\Cor360BillingTemplate - Hanesbrands UK Europe.xlsx
 C:\Users\sshatkin\Documents\Billing\Client Templates\Heartland Financial\Cor360BillingTemplate - Heartland Financial.xlsx
+C:\Users\sshatkin\Documents\Billing\Client Templates\Hogan Truck Leasing\Cor360BillingTemplate - Hogan Truck Leasing.xlsx
 C:\Users\sshatkin\Documents\Billing\Client Templates\IAC\Cor360BillingTemplate - IAC.xlsx
 C:\Users\sshatkin\Documents\Billing\Client Templates\Jonas Software\Cor360BillingTemplate - Jonas Software.xlsx
 C:\Users\sshatkin\Documents\Billing\Client Templates\JW Measurement\Cor360BillingTemplate - JW Measurement.xlsx
+C:\Users\sshatkin\Documents\Billing\Client Templates\Kelly Moore Paints\Cor360BillingTemplate - Kelly Moore Paints.xlsx
+C:\Users\sshatkin\Documents\Billing\Client Templates\Match\Cor360BillingTemplate - Match.xlsx
+C:\Users\sshatkin\Documents\Billing\Client Templates\McCarthy Holdings\Cor360BillingTemplate - McCarthy Holdings.xlsx
 C:\Users\sshatkin\Documents\Billing\Client Templates\Methodist Hospital\Cor360BillingTemplate - Methodist Hospital.xlsx
 C:\Users\sshatkin\Documents\Billing\Client Templates\Mindspark\Cor360BillingTemplate - Mindspark.xlsx
 C:\Users\sshatkin\Documents\Billing\Client Templates\Mobile Climate Control\Cor360BillingTemplate - MCC.xlsx
@@ -37,9 +47,12 @@ C:\Users\sshatkin\Documents\Billing\Client Templates\Old National Bank\Cor360Bil
 C:\Users\sshatkin\Documents\Billing\Client Templates\Olmsted County\Cor360BillingTemplate - Olmsted County.xlsx
 C:\Users\sshatkin\Documents\Billing\Client Templates\ONeal Steel\Cor360BillingTemplate - ONeal Steel.xlsx
 C:\Users\sshatkin\Documents\Billing\Client Templates\Parker Hannafin\Cor360BillingTemplate - Parker Hannafin.xlsx
+C:\Users\sshatkin\Documents\Billing\Client Templates\Polaris\Cor360BillingTemplate - Polaris.xlsx
 C:\Users\sshatkin\Documents\Billing\Client Templates\Port of Kennewick\Cor360BillingTemplate - Port of Kennewick.xlsx
 C:\Users\sshatkin\Documents\Billing\Client Templates\Port of Seattle\Cor360BillingTemplate - Port of Seattle.xlsx
+C:\Users\sshatkin\Documents\Billing\Client Templates\Principal Financial\Cor360BillingTemplate - Principal Financial-old.xlsx
 C:\Users\sshatkin\Documents\Billing\Client Templates\Principal Financial\Cor360BillingTemplate - Principal Financial.xlsx
+C:\Users\sshatkin\Documents\Billing\Client Templates\Rexel Holdings\Cor360BillingTemplate - Rexel.xlsx
 C:\Users\sshatkin\Documents\Billing\Client Templates\RNDC\Cor360BillingTemplate - RNDC-1.xlsx
 C:\Users\sshatkin\Documents\Billing\Client Templates\RNDC\Cor360BillingTemplate - RNDC.xlsx
 C:\Users\sshatkin\Documents\Billing\Client Templates\SAIC\Cor360BillingTemplate - SAIC.xlsx
@@ -50,6 +63,7 @@ C:\Users\sshatkin\Documents\Billing\Client Templates\SITA\Cor360BillingTemplate 
 C:\Users\sshatkin\Documents\Billing\Client Templates\SMS Millcraft\Cor360BillingTemplate - SMS Millcraft.xlsx
 C:\Users\sshatkin\Documents\Billing\Client Templates\Southern Pipe & Supply\Cor360BillingTemplate - Southern Pipe & Supply.xlsx
 C:\Users\sshatkin\Documents\Billing\Client Templates\Spark Energy\Cor360BillingTemplate - Spark Energy.xlsx
+C:\Users\sshatkin\Documents\Billing\Client Templates\Speedy Cash\Cor360BillingTemplate - Speedy Cash.xlsx
 C:\Users\sshatkin\Documents\Billing\Client Templates\Stimson Lumber\Cor360BillingTemplate - Stimson.xlsx
 C:\Users\sshatkin\Documents\Billing\Client Templates\Suburban Propane\Cor360BillingTemplate - SuburbanPropane.xlsx
 C:\Users\sshatkin\Documents\Billing\Client Templates\Sungard\Cor360BillingTemplate - Sungard.xlsx
@@ -57,6 +71,7 @@ C:\Users\sshatkin\Documents\Billing\Client Templates\Telular\Cor360BillingTempla
 C:\Users\sshatkin\Documents\Billing\Client Templates\The Gordian Group\Cor360BillingTemplate - The Gordian Group.xlsx
 C:\Users\sshatkin\Documents\Billing\Client Templates\Towlift\Cor360BillingTemplate - Towlift.xlsx
 C:\Users\sshatkin\Documents\Billing\Client Templates\Trustbridge\Cor360BillingTemplate - Trustbridge.xlsx
+C:\Users\sshatkin\Documents\Billing\Client Templates\United Farmers of Alberta\Cor360BillingTemplate IRM - United Farmers of Alberta.xlsx
 C:\Users\sshatkin\Documents\Billing\Client Templates\United Methodist Retirement Homes\Cor360BillingTemplate - United Methodist Retirement Homes.xlsx
 C:\Users\sshatkin\Documents\Billing\Client Templates\Univ of Florida\Cor360BillingTemplate - Univ of Florida.xlsx
 C:\Users\sshatkin\Documents\Billing\Client Templates\University Physicians\Cor360BillingTemplate - University Physicians.xlsx
@@ -67,6 +82,7 @@ C:\Users\sshatkin\Documents\Billing\Client Templates\Watermark\Cor360BillingTemp
 C:\Users\sshatkin\Documents\Billing\Client Templates\WD40\Cor360BillingTemplate - WD40.xlsx
 C:\Users\sshatkin\Documents\Billing\Client Templates\Wescom\Cor360BillingTemplate - Wescom.xlsx
 C:\Users\sshatkin\Documents\Billing\Client Templates\Westwood Shipping\Cor360BillingTemplate - Westwood Shipping.xlsx
+C:\Users\sshatkin\Documents\Billing\Client Templates\Whatabrands\Cor360BillingTemplate - Whatabrands.xlsx
 C:\Users\sshatkin\Documents\Billing\Client Templates\World Fuel Services\Cor360BillingTemplate - World Fuel Services.xlsx
 C:\Users\sshatkin\Documents\Billing\Client Templates\WWE\Cor360BillingTemplate - WWE.xlsx
 C:\Users\sshatkin\Documents\Billing\Client Templates\YAI\Cor360BillingTemplate - YAI.xlsx

@@ -72,7 +72,7 @@ namespace BillingProcessor
                     {
                         files.Add(f);
 
-                        if (f.Contains("xlsx") && !f.Contains("~") && !f.Contains("copy"))
+                        if (f.Contains("xlsx") && !f.Contains("~") && !f.ToLower().Contains("copy") && !f.Contains("(") && !f.ToLower().Contains("_old"))
                         {
                             file.WriteLine(f);
                         }
@@ -141,7 +141,7 @@ namespace BillingProcessor
                             range.Cells[rCnt + 2, 7].Value2 = 0.5;
                             range.Cells[rCnt + 2, 6].Value2 = "PO Requisition Transactions";
                             range.Cells[rCnt + 2, 5].Value2 = 0.5;
-                            range.Cells[rCnt + 2, 2].Value2 = " PO Requisition Transaction Fee";
+                            range.Cells[rCnt + 2, 2].Value2 = "PO Requisition Transaction Fee";
                             range.Cells[rCnt + 2, 1].Value2 = 1;
                             xlWorkSheet.Range[range.Cells[rCnt + 2, 2], range.Cells[rCnt + 2, 3]].Merge();
 
@@ -246,6 +246,10 @@ namespace BillingProcessor
 
                 int iSSOSDesc = findElement(ref xlWorkSheet, ref range, "Single Sign-On Monthly Fee", 6);
                 int iSSOLine = findElement(ref xlWorkSheet, ref range, "F" + iSSOSDesc.ToString(), 1);
+
+
+                int iPOReqSDesc = findElement(ref xlWorkSheet, ref range, "PO Requisition Transaction Fee", 6);
+                int iPOReqLine = findElement(ref xlWorkSheet, ref range, "F" + iPOReqSDesc.ToString(), 1);
 
 
                 for (rCnt = 1; rCnt <= range.Rows.Count; rCnt++)
