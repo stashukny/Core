@@ -17,7 +17,6 @@ namespace BillingProcessor
 
         public bool formulasInserted;
         public float Sum = 0;
-        public int newTransactionFeeLine;
         public int newMonthlyFeeLine;
 
         public Form1()
@@ -50,7 +49,7 @@ namespace BillingProcessor
 
         private void btnAddFormulas_Click(object sender, EventArgs e)
         {
-            cycleThroughFiles("formulas");
+            cycleThroughFiles("specific_formula");
         }
 
         private void btnListFiles_Click(object sender, EventArgs e)
@@ -118,56 +117,43 @@ namespace BillingProcessor
             {
                 updateSpecficFormula(ref xlWorkSheet, ref range, true, true);
             }
-
-            for (rCnt = 1; rCnt <= range.Rows.Count; rCnt++)
+            else if (insertType == "schedule")
             {
-
-                if (insertType == "schedule")
+                for (rCnt = 1; rCnt <= range.Rows.Count; rCnt++)
                 {
-                    if (range.Cells[rCnt, 6].Value2 != null)
-                    {
-                        if (range.Cells[rCnt, 6].Value2.ToString().Trim() == "Single Sign-On Monthly Fee")
+
+
+                        if (range.Cells[rCnt, 6].Value2 != null)
                         {
-                            //insert next new row
-                            Excel.Range Line = (Excel.Range)xlWorkSheet.Rows[rCnt + 1];
-                            Line.Insert();
-                            range.Cells[rCnt + 1, 6].Value2 = "PO Requisition Transactions";
+                            if (range.Cells[rCnt, 6].Value2.ToString().Trim() == "Single Sign-On Monthly Fee")
+                            {
+                                //insert next new row
+                                Excel.Range Line = (Excel.Range)xlWorkSheet.Rows[rCnt + 1];
+                                Line.Insert();
+                                range.Cells[rCnt + 1, 6].Value2 = "PO Requisition Transactions";
 
 
-                            Excel.Range Line2 = (Excel.Range)xlWorkSheet.Rows[rCnt + 2];
-                            Line2.Insert();
+                                Excel.Range Line2 = (Excel.Range)xlWorkSheet.Rows[rCnt + 2];
+                                Line2.Insert();
 
 
-                            range.Cells[rCnt + 2, 7].Value2 = 0.5;
-                            range.Cells[rCnt + 2, 6].Value2 = "PO Requisition Transactions";
-                            range.Cells[rCnt + 2, 5].Value2 = 0.5;
-                            range.Cells[rCnt + 2, 2].Value2 = "PO Requisition Transaction Fee";
-                            range.Cells[rCnt + 2, 1].Value2 = 1;
-                            xlWorkSheet.Range[range.Cells[rCnt + 2, 2], range.Cells[rCnt + 2, 3]].Merge();
+                                range.Cells[rCnt + 2, 7].Value2 = 0.5;
+                                range.Cells[rCnt + 2, 6].Value2 = "PO Requisition Transactions";
+                                range.Cells[rCnt + 2, 5].Value2 = 0.5;
+                                range.Cells[rCnt + 2, 2].Value2 = "PO Requisition Transaction Fee";
+                                range.Cells[rCnt + 2, 1].Value2 = 1;
+                                xlWorkSheet.Range[range.Cells[rCnt + 2, 2], range.Cells[rCnt + 2, 3]].Merge();
 
-                            int i = 1;
-                            for (i = 1; i < 9; i++ )
-                            { 
-                                range.Cells[rCnt + 1, i].Interior.ColorIndex = 1;
-                                range.Cells[rCnt + 1, i].Font.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.White);
+                                int i = 1;
+                                for (i = 1; i < 9; i++ )
+                                { 
+                                    range.Cells[rCnt + 1, i].Interior.ColorIndex = 1;
+                                    range.Cells[rCnt + 1, i].Font.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.White);
+                                }
                             }
-                        }
 
-                    }
-                }
-                else if (insertType == "formulas")
-                {
-                    if (range.Cells[rCnt, 1].Value2 != null)
-                    {
-                        if (range.Cells[rCnt, 1].Value2.ToString().Trim() == "Subtotal of Charges: USD")
-                        {
-                            int Position = rCnt - 11;
-                            updateFormulas(ref xlWorkSheet, ref range, Position, 25);                            
-
-                            break;
                         }
                     }
-                }
             }
 
             xlApp.DisplayAlerts = false;
@@ -204,42 +190,53 @@ namespace BillingProcessor
         private void btnRunAll_Click(object sender, EventArgs e)
         {
             cycleThroughFiles("schedule");
-            cycleThroughFiles("formulas");
             cycleThroughFiles("specific_formula");
         }
 
-        private void updateFormulas(ref Excel.Worksheet xlWorkSheet, ref Excel.Range range, int Position, int offset)
+        private void updateFormulas(ref Excel.Worksheet xlWorkSheet, ref Excel.Range range, int Position, int iNewLabel)
         {
+            int iIncrementPos = Position + 1;
 
-            Excel.Range Line = (Excel.Range)xlWorkSheet.Rows[Position];
+            Excel.Range Line = (Excel.Range)xlWorkSheet.Rows[iIncrementPos];
             Line.Insert();
-            string initialFormula = range.Cells[Position - 1, 1].Formula;
+
+            int iNewLabelIncr = iNewLabel + 2;
+
+            string initialFormula = range.Cells[Position, 1].Formula;
             string updateFormula = initialFormula.Substring(initialFormula.Length - 10);
             int rowNum = Convert.ToInt32(updateFormula.Replace("), \" \")", "").Replace("F", ""));
-            range.Cells[Position, 1].Formula = initialFormula.Replace((rowNum).ToString(), (rowNum + offset).ToString()).Replace((Position - 1).ToString(), Position.ToString());
-            xlWorkSheet.Range[range.Cells[Position, 4], range.Cells[Position, 5]].Merge();
-            range.Cells[Position, 4].Formula = range.Cells[Position - 1, 4].Formula.ToString().Replace(rowNum.ToString(), (rowNum + offset).ToString()).Replace("A" + (rowNum + offset).ToString() + "*", "");
-            range.Cells[Position, 4].Formula = range.Cells[Position, 4].Formula.Replace("U", "Y");
-
+            range.Cells[iIncrementPos, 1].Formula = initialFormula.Replace((rowNum).ToString(), (iNewLabelIncr).ToString()).Replace((Position).ToString(), iIncrementPos.ToString());
+            xlWorkSheet.Range[range.Cells[iIncrementPos, 4], range.Cells[iIncrementPos, 5]].Merge();
+            range.Cells[iIncrementPos, 4].Formula = range.Cells[Position, 4].Formula.ToString().Replace(rowNum.ToString(), (iNewLabelIncr).ToString()).Replace("A" + (iNewLabelIncr).ToString() + "*", "");
+            range.Cells[iIncrementPos, 4].Formula = range.Cells[iIncrementPos, 4].Formula.Replace("U", "Y");
+            
             //more formulas
-            range.Cells[Position, 3].Formula = range.Cells[Position, 4].Formula.Replace(range.Cells[Position, 4].Formula.ToString().Substring(range.Cells[Position, 4].Formula.ToString().IndexOf("),") + 3, 8), "").Replace(", 0", ",' '");
-            range.Cells[Position, 2].Formula = range.Cells[Position, 4].Formula.Replace(range.Cells[Position, 4].Formula.ToString().Substring(range.Cells[Position, 4].Formula.ToString().IndexOf("*"), 6), "");
-
-            newTransactionFeeLine = Position;
+            range.Cells[iIncrementPos, 3].Formula = range.Cells[iIncrementPos, 4].Formula.Replace(range.Cells[iIncrementPos, 4].Formula.ToString().Substring(range.Cells[iIncrementPos, 4].Formula.ToString().IndexOf("),") + 3, 8), "").Replace(", 0", ",' '");
+            range.Cells[iIncrementPos, 2].Formula = range.Cells[iIncrementPos, 4].Formula.ToString().Replace("* ", "*").Replace("*G" + (iNewLabelIncr).ToString(), ""); 
         }
 
         private void btnModifyOneFormula_Click(object sender, EventArgs e)
         {
-            cycleThroughFiles("one_formula");
+            cycleThroughFiles("specific_formula");
         }
 
         private void updateSpecficFormula(ref Excel.Worksheet xlWorkSheet, ref Excel.Range range, bool processMonthly, bool processTransaction)
         {
             if (processMonthly || processTransaction)
             {               
-                int rCnt = 0;
+                int iEnvoicesDesc = findElement(ref xlWorkSheet, ref range, "Corcentric e-Invoices", 6);
+                int iEnvoicesLine = findElement(ref xlWorkSheet, ref range, "F" + iEnvoicesDesc.ToString(), 1);
 
-                //Expense SaaS
+                int iPOReqSDesc = findElement(ref xlWorkSheet, ref range, "PO Requisition Transactions", 6);
+
+                updateFormulas(ref xlWorkSheet, ref range, iEnvoicesLine, iPOReqSDesc);
+
+                iPOReqSDesc = findElement(ref xlWorkSheet, ref range, "PO Requisition Transactions", 6);
+                int iPOReqLine = findElement(ref xlWorkSheet, ref range, "F" + (iPOReqSDesc + 1).ToString(), 1);
+
+                int iMonthlyFees = findElement(ref xlWorkSheet, ref range, "Monthly Fees", 1);
+                int iTransactionFees = findElement(ref xlWorkSheet, ref range, "Transaction Fees", 1);
+
                 int iExpenseSaaSDesc = findElement(ref xlWorkSheet, ref range, "Expense Report SaaS fee", 6);
                 int iExpenseSaaSLine = findElement(ref xlWorkSheet, ref range, "F" + iExpenseSaaSDesc.ToString(), 1);
 
@@ -247,46 +244,12 @@ namespace BillingProcessor
                 int iSSOSDesc = findElement(ref xlWorkSheet, ref range, "Single Sign-On Monthly Fee", 6);
                 int iSSOLine = findElement(ref xlWorkSheet, ref range, "F" + iSSOSDesc.ToString(), 1);
 
+                range.Cells[iMonthlyFees, 1].Formula = range.Cells[iMonthlyFees, 1].Formula.Replace(" =", "=").Replace("= ", "=");
+                range.Cells[iMonthlyFees, 1].Formula = range.Cells[iMonthlyFees, 1].Formula.ToString().Replace("A" + (iExpenseSaaSLine - 1).ToString() + "=\" \",", "A" + (iExpenseSaaSLine - 1).ToString() + "=\" \"," + " A" + (iExpenseSaaSLine).ToString() + "=\" \",");
+                range.Cells[iMonthlyFees, 1].Formula = range.Cells[iMonthlyFees, 1].Formula.ToString().Replace("A" + (iSSOLine - 1).ToString() + "=\" \")", "A" + (iSSOLine - 1).ToString() + "=\" \"," + " A" + (iSSOLine).ToString() + "=\" \")");
 
-                int iPOReqSDesc = findElement(ref xlWorkSheet, ref range, "PO Requisition Transaction Fee", 6);
-                int iPOReqLine = findElement(ref xlWorkSheet, ref range, "F" + iPOReqSDesc.ToString(), 1);
-
-
-                for (rCnt = 1; rCnt <= range.Rows.Count; rCnt++)
-                {
-                    if (range.Cells[rCnt, 1].Value2 != null)
-                    {
-                        if (processMonthly)
-                        { 
-                            if (range.Cells[rCnt, 1].Formula.ToString().Trim().IndexOf("Monthly Fees") > 0)
-                            {
-                                range.Cells[rCnt, 1].Formula = range.Cells[rCnt, 1].Formula.Replace(" =", "=").Replace("= ", "=");
-                                range.Cells[rCnt, 1].Formula = range.Cells[rCnt, 1].Formula.ToString().Replace("A" + (iExpenseSaaSLine - 1).ToString() + "=\" \",", "A" + (iExpenseSaaSLine - 1).ToString() + "=\" \"," + " A" + (iExpenseSaaSLine).ToString() + "=\" \",");
-                                range.Cells[rCnt, 1].Formula = range.Cells[rCnt, 1].Formula.ToString().Replace("A" + (iSSOLine - 1).ToString() + "=\" \")", "A" + (iSSOLine - 1).ToString() + "=\" \"," + " A" + (iSSOLine).ToString() + "=\" \")");
-                                //range.Cells[rCnt, 1].Formula = range.Cells[rCnt, 1].Formula.ToString().Replace("A" + (iSSOLine - 1).ToString() + " = \" \",", "A" + (iSSOLine - 1).ToString() + " = \" \"," + " A" + (iSSOLine).ToString() + " = \" \",");
-
-                                processMonthly = false;
-                            }
-                        }
-                    
-                        if (processTransaction)
-                        { 
-                            if (range.Cells[rCnt, 1].Formula.ToString().Trim().IndexOf("Transaction Fees") > 0)
-                            {
-                                range.Cells[rCnt, 1].Formula = range.Cells[rCnt, 1].Formula.Replace(" =", "=").Replace("= ", "=");
-                                range.Cells[rCnt, 1].Formula = range.Cells[rCnt, 1].Formula.ToString().Replace("A" + (newTransactionFeeLine - 1).ToString() + "=\" \",", "A" + (newTransactionFeeLine - 1).ToString() + "=\" \"," + " A" + (newTransactionFeeLine).ToString() + "=\" \",");
-
-                                processTransaction = false;
-                            }
-                        }
-
-                        if (!(processMonthly || processTransaction))
-                        {
-                            break;
-                        }
-                    }
-
-                }
+                range.Cells[iTransactionFees, 1].Formula = range.Cells[iTransactionFees, 1].Formula.Replace(" =", "=").Replace("= ", "=");
+                range.Cells[iTransactionFees, 1].Formula = range.Cells[iTransactionFees, 1].Formula.ToString().Replace("A" + (iPOReqLine - 1).ToString() + "=\" \",", "A" + (iPOReqLine - 1).ToString() + "=\" \"," + " A" + (iPOReqLine).ToString() + "=\" \",");
             
             }
         }

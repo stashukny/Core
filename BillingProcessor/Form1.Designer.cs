@@ -32,7 +32,6 @@
             this.btnAddFormulas = new System.Windows.Forms.Button();
             this.btnListFiles = new System.Windows.Forms.Button();
             this.btnRunAll = new System.Windows.Forms.Button();
-            this.btnModifyOneFormula = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnAddScheduleA
@@ -75,22 +74,11 @@
             this.btnRunAll.UseVisualStyleBackColor = true;
             this.btnRunAll.Click += new System.EventHandler(this.btnRunAll_Click);
             // 
-            // btnModifyOneFormula
-            // 
-            this.btnModifyOneFormula.Location = new System.Drawing.Point(73, 220);
-            this.btnModifyOneFormula.Name = "btnModifyOneFormula";
-            this.btnModifyOneFormula.Size = new System.Drawing.Size(168, 23);
-            this.btnModifyOneFormula.TabIndex = 4;
-            this.btnModifyOneFormula.Text = "Modify Formula";
-            this.btnModifyOneFormula.UseVisualStyleBackColor = true;
-            this.btnModifyOneFormula.Click += new System.EventHandler(this.btnModifyOneFormula_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(282, 255);
-            this.Controls.Add(this.btnModifyOneFormula);
             this.Controls.Add(this.btnRunAll);
             this.Controls.Add(this.btnListFiles);
             this.Controls.Add(this.btnAddFormulas);
@@ -107,7 +95,6 @@
         private System.Windows.Forms.Button btnAddFormulas;
         private System.Windows.Forms.Button btnListFiles;
         private System.Windows.Forms.Button btnRunAll;
-        private System.Windows.Forms.Button btnModifyOneFormula;
     }
 }
 
