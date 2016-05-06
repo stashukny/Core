@@ -164,9 +164,6 @@ namespace BillingProcessor
                             int Position = rCnt - 11;
                             updateFormulas(ref xlWorkSheet, ref range, Position, 25);                            
 
-                            //Position = rCnt - 2;
-                            //updateFormulas(ref xlWorkSheet, ref range, Position, 1);      
-
                             break;
                         }
                     }
