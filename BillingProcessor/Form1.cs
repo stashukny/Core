@@ -12,14 +12,16 @@ using System.IO;
 
 namespace BillingProcessor
 {
-    public partial class Form1 : Form
+    public partial class frmBillProcessor : Form
     {
 
         public bool formulasInserted;
         public float Sum = 0;
         public int newMonthlyFeeLine;
+        private const string sFileList = @"listClients.txt";
+        private const string sDir = @"C:\Users\sshatkin\Documents\Billing\Client Templates\";
 
-        public Form1()
+        public frmBillProcessor()
         {
             InitializeComponent();
         }
@@ -54,7 +56,7 @@ namespace BillingProcessor
 
         private void btnListFiles_Click(object sender, EventArgs e)
         {
-            DirSearch(@"C:\Users\sshatkin\Documents\Billing\Client Templates\");
+            DirSearch(sDir);
         }
 
         private List<String> DirSearch(string sDir)
@@ -64,7 +66,7 @@ namespace BillingProcessor
 
             try
             {
-                using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"listClients.txt", true))
+                using (System.IO.StreamWriter file = new System.IO.StreamWriter(sFileList, true))
                 {
                     file.AutoFlush = true;
                     foreach (string f in Directory.GetFiles(sDir))
@@ -116,6 +118,11 @@ namespace BillingProcessor
             if (insertType == "specific_formula")
             {
                 updateSpecficFormula(ref xlWorkSheet, ref range, true, true);
+            }
+
+            else if (insertType == "remove_blanks")
+            {
+                RemoveLines(ref xlWorkSheet, ref range, 3);
             }
             else if (insertType == "schedule")
             {
@@ -176,7 +183,7 @@ namespace BillingProcessor
 
         private void cycleThroughFiles(string insertType)
         {
-            using (System.IO.StreamReader file = new System.IO.StreamReader(@"MasterClientList.txt"))
+            using (System.IO.StreamReader file = new System.IO.StreamReader(sFileList))
             {
                 while (true)
                 {
@@ -254,6 +261,16 @@ namespace BillingProcessor
             }
         }
 
+        private void RemoveLines (ref Excel.Worksheet xlWorkSheet, ref Excel.Range range, int lines)
+        {
+            int linesLocation = findElement(ref xlWorkSheet, ref range, "BillingPeriod", 2);
+
+            for (int i = 0; i < lines; i++)
+            {
+                xlWorkSheet.Rows[linesLocation - lines - i].Delete();
+            }
+        }
+
         private int findElement (ref Excel.Worksheet xlWorkSheet, ref Excel.Range range, string findString, int col)
         {
             int rCnt = 0,
@@ -273,6 +290,11 @@ namespace BillingProcessor
 
             }
             return iFound;
+        }
+
+        private void btnRemoveBlankRows_Click(object sender, EventArgs e)
+        {
+            cycleThroughFiles("remove_blanks");
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace BillingProcessor
 {
-    partial class Form1
+    partial class frmBillProcessor
     {
         /// <summary>
         /// Required designer variable.
@@ -32,6 +32,7 @@
             this.btnAddFormulas = new System.Windows.Forms.Button();
             this.btnListFiles = new System.Windows.Forms.Button();
             this.btnRunAll = new System.Windows.Forms.Button();
+            this.btnRemoveBlankRows = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnAddScheduleA
@@ -74,17 +75,28 @@
             this.btnRunAll.UseVisualStyleBackColor = true;
             this.btnRunAll.Click += new System.EventHandler(this.btnRunAll_Click);
             // 
-            // Form1
+            // btnRemoveBlankRows
+            // 
+            this.btnRemoveBlankRows.Location = new System.Drawing.Point(73, 220);
+            this.btnRemoveBlankRows.Name = "btnRemoveBlankRows";
+            this.btnRemoveBlankRows.Size = new System.Drawing.Size(168, 23);
+            this.btnRemoveBlankRows.TabIndex = 4;
+            this.btnRemoveBlankRows.Text = "Remove Blank Rows";
+            this.btnRemoveBlankRows.UseVisualStyleBackColor = true;
+            this.btnRemoveBlankRows.Click += new System.EventHandler(this.btnRemoveBlankRows_Click);
+            // 
+            // frmBillProcessor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(282, 255);
+            this.Controls.Add(this.btnRemoveBlankRows);
             this.Controls.Add(this.btnRunAll);
             this.Controls.Add(this.btnListFiles);
             this.Controls.Add(this.btnAddFormulas);
             this.Controls.Add(this.btnAddScheduleA);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "frmBillProcessor";
+            this.Text = "Billing Processor";
             this.ResumeLayout(false);
 
         }
@@ -95,6 +107,7 @@
         private System.Windows.Forms.Button btnAddFormulas;
         private System.Windows.Forms.Button btnListFiles;
         private System.Windows.Forms.Button btnRunAll;
+        private System.Windows.Forms.Button btnRemoveBlankRows;
     }
 }
 
